@@ -1,0 +1,6 @@
+# Application dependencies
+
+require:
+    - play
+    - play -> secure
+    - com.lambdaworks -> scrypt 1.3.3
