@@ -19,7 +19,7 @@ rm -r -f /usr/share/tomcat6/webapps/opentripplanner-webapp
 #Add new wars/folders
 cp opentripplanner-analyst-client/target/opentripplanner-analyst-client.war /usr/share/tomcat6/webapps
 cp opentripplanner-api-webapp/target/opentripplanner-api-webapp.war /usr/share/tomcat6/webapps
-cp opentripplanner-ga-client/target/opentripplanner-analyst-client.war /usr/share/tomcat6/webapps
+cp opentripplanner-ga-client/target/opentripplanner-ga-client.war /usr/share/tomcat6/webapps
 cp opentripplanner-webapp/target/opentripplanner-webapp.war /usr/share/tomcat6/webapps 
 
 # Start the server again
