@@ -347,8 +347,8 @@ $('#searchTypeSelect').change( function() {
 		$('.secondaryControl').fadeOut( 500 );
 		flags.twoSearch = false;
 	} else {
-                $('.secondaryControl').fadeOut( 500 );
-                flags.twoSearch = false;
+                $('.secondaryControl').fadeIn( 500 );
+		flags.twoSearch = true;
         }
 	if (type == 'ppa') {
 		// lock arriveBy selectors and rename endpoints

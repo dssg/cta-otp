@@ -2,7 +2,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>OTP Analyst Client</title>
+	<title>OTP GA Client</title>
 	<link rel="stylesheet" href="js/lib/leaflet/leaflet.css" />
 	<script src="js/lib/leaflet/leaflet.js" ></script>
 	<!-- leaflet 0.4.5 from CDN spews lots of benign but annoying errors -->
@@ -87,65 +87,6 @@
 					</select>
 				</span>
 			</div> <!-- END endpointAControls -->
-			<div id="endpointBControls" class="secondaryControl">
-				<img src="js/lib/leaflet/images/marker-red-rot.png"/>
-				<h2 id="headerB" class="secondaryControl">Destination Setup</h2>
-				<span>
-					<label for="setupRelativeTime2">Time relative to origin:</label> 	
-					<select id="setupRelativeTime2" class="timeController" >
-						<option value="+0">Same as Above</option>
-						<option value="+0.25"> +15 minutes</option>
-						<option value="+0.5" > +30 minutes</option>
-						<option value="+0.75"> +45 minutes</option>
-						<option value="+1.0" >  +1 hour</option>
-						<option value="+1.5" >+1.5 hours</option>
-						<option value="+2.0" selected="selected">  +2 hours</option>
-						<option value="+2.5" >+2.5 hours</option>
-						<option value="+3.0" >  +3 hours</option>
-                                                <option value="+4.0" >  +4 hours</option>
-                                                <option value="+6.0" >  +6 hours</option>
-                                                <option value="+8.0" >  +8 hours</option>
-					</select>
-				</span>
-				<span class="timeEntry">
-					<select id="arriveByB" >
-						<option value="same">Same as Above</option>
-						<option value="true">Arrive by</option>
-						<option value="false">Depart after</option>
-					</select>
-					<input type="text" id="setupTime2" disabled="disabled" />
-				</span>
-				<span>
-					<label for="setupMode2">Mode:</label> 
-					<select id="setupMode2">
-						<option value="same">Same as Above</option>
-						<option value="TRANSIT,WALK">Transit</option>
-						<option value="BUSISH,WALK">Bus only</option>
-						<option value="TRAINISH,WALK">Train only</option>
-						<option value="WALK">Walk only</option>
-						<option value="BICYCLE">Bicycle</option>
-						<option value="WALK,BICYCLE">Rented Bicycle</option>
-						<option value="TRANSIT,BICYCLE">Transit &amp; Bicycle</option>
-						<option value="TRANSIT,WALK,BICYCLE">Transit &amp; Rented Bicycle</option>
-					</select>
-				</span>
-				<span>
-					<label for="setupMaxDistance2" class="autoWidth">Max walk/bike:</label> 
-					<select id="setupMaxDistance2">
-						<option value="same" selected="selected">Same as Above</option>
-						<option value="500">500m</option>
-						<option value="1000">1km</option>
-						<option value="2000">2km</option>
-						<option value="4000">4km</option>
-						<option value="8000">8km</option>
-						<option value="200000">Unlimited</option>
-					</select>
-				</span>
-<!-- 				<span> -->
-<!-- 					<label for="checkBanPurple" class="autoWidth">Ban purple line:</label>  -->
-<!-- 					<input type="checkbox" id="checkBanPurple"> -->
-<!-- 				</span> -->
-			</div> <!-- END endpointBControls -->
 		</form>
 		<form>
 			<input type="button" value="Refresh Map" onclick="mapSetupTool()" class="fullWidth" />
