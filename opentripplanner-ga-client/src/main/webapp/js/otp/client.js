@@ -52,8 +52,7 @@ var aerialLayer = new L.TileLayer(aerialURL,
 		{maxZoom: 18, attribution: mapboxAttrib});
 
 var flags = {
-	twoEndpoint: false,
-	twoSearch: false,
+
 };
 
 
@@ -114,39 +113,11 @@ if (AUTO_CENTER_MAP) {
 map.setView(initLocation, 12);
 var initLocation2 = new L.LatLng(initLocation.lat + 0.05, initLocation.lng + 0.05);
 
-//Marker icons
-
-var greenMarkerIcon = new L.Icon({ iconUrl: 'js/lib/leaflet/images/marker-green.png' });
-var redMarkerIcon = new L.Icon({ iconUrl: 'js/lib/leaflet/images/marker-red.png' });
-var origMarker = new L.Marker(initLocation,  {draggable: true, icon: greenMarkerIcon });
-var destMarker = new L.Marker(initLocation2, {draggable: true, icon: redMarkerIcon });
-origMarker.on('dragend', mapSetupTool);
-destMarker.on('dragend', mapSetupTool);
-
 // add layers to map 
 // do not add analyst layer yet -- it will be added in refresh() once params are pulled in
 
 map.addLayer(mapboxLayer);
-map.addLayer(origMarker);
 map.addControl(new L.Control.Layers(baseMaps, overlayMaps));
-
-var nclicks = 0;
-function mapClick(e) {
-	++nclicks;
-	if (nclicks == 1) {
-		setTimeout(function(){
-	          if(nclicks == 1) {
-	            // after n ms there was no other click: this is a single click
-        	    origMarker.setLatLng(e.latlng);
-        	    mapSetupTool();	            
-	          } else {
-	            // double clicked, or else we're not using pointers so we don't care
-	          }
-	          nclicks = 0;
-		}, 500);
-	}
-}
-map.on('click', mapClick);
 
 var params;
 
@@ -159,22 +130,14 @@ function mapSetupTool() {
 
 	// pull search parameters from form
 	switch($('#searchTypeSelect').val()) {
-	case 'single':
-		params.layers = 'traveltime';
-		params.styles = 'colorchi';
-		break;
-	case 'ppa':
-		params.layers = 'hagerstrand';
-		params.styles = 'transparent';
-		break;
-	case 'diff2':
-		params.layers = 'difference';
-		params.styles = 'difference';
-		break;
-	case 'diff1':
-		params.layers = 'difference';
-		params.styles = 'difference';
-		break;
+        case 'access':
+                params.layers = 'avgtraveltime';
+                params.styles = 'colorchi';
+                break;
+        case 'closest':
+                params.layers = 'closesttraveltime';
+                params.styles = 'colorchi';
+                break;
 	}
 	// store one-element arrays so we can append as needed for the second search
 	params.time = [$('#setupTime').val()];
@@ -189,31 +152,16 @@ function mapSetupTool() {
 		default:
 			params.clampInitialWait = [$('#timeLenience').val() * 60];
 	}
-	if (flags.twoSearch) {
-		var pushIfDifferent = function (elementId, paramName) {
-			console.log(elementId);
-			var elemval = document.getElementById(elementId).value;
-			if (elemval != 'same') {
-				params[paramName].push(elemval);
-			}
-		};
-		var args = [['setupTime2', 'time'],
-		            ['setupMode2', 'mode'],
-		            ['setupMaxDistance2', 'maxWalkDistance'],
-		            ['arriveByB', 'arriveBy']];
-		for (i in args) {
-			pushIfDifferent.apply(this, args[i]);
-		}
-	}
-    
-    // get origin and destination coordinate from map markers
-    var o = origMarker.getLatLng();
-	params.fromPlace = [o.lat + ',' + o.lng];
-    
-    if (flags.twoEndpoint) {
-    	var d = destMarker.getLatLng();
-    	params.fromPlace.push(d.lat + ',' + d.lng);
-    }
+   
+        params.fromPlace = ['41.8877,-87.6205'];
+        var ori = ['41.8794,-87.6097'];
+        for(oll in ori){
+            params.fromPlace.push(ori[oll]);
+        }
+        
+        /*for()
+        */
+
 	// set from and to places to the same string(s) so they work for both arriveBy and departAfter
 	params.toPlace = params.fromPlace;
     	
@@ -285,13 +233,10 @@ var downloadTool = function () {
     return false;
 };
 
-var displayTimes = function(fractionalHours, fractionalHoursOffset) {
+var displayTimes = function(fractionalHours) {
 	console.log("fhour", fractionalHours);
-	// console.log("offset", fractionalHoursOffset);
 	var msec = BASE_DATE_MSEC + fractionalHours * MSEC_PER_HOUR; 
 	document.getElementById('setupTime').value = new Date(msec).toISOString().substring(0,19);
-	msec += fractionalHoursOffset * MSEC_PER_HOUR; 
-	document.getElementById('setupTime2').value = new Date(msec).toISOString().substring(0,19);
 };
 
 function setFormDisabled(formName, disabled) {
@@ -311,9 +256,9 @@ function setFormDisabled(formName, disabled) {
 $('#searchTypeForm').change( mapSetupTool );
 
 // intercept slider change event bubbling to avoid frequent map rendering
-(function(slider, offset) {
+(function(slider) {
     slider.bind('change', function() {
-    	displayTimes(slider.val(), offset.val()); 
+    	displayTimes(slider.val()); 
         return false; // block event propagation
     }).change();
     slider.bind('mouseup', function() {
@@ -322,48 +267,12 @@ $('#searchTypeForm').change( mapSetupTool );
     offset.bind('change', function() {
     	displayTimes(slider.val(), offset.val()); 
     });
-}) ($("#timeSlider"), $('#setupRelativeTime2'));
+}) ($("#timeSlider"));
 
-//hide some UI elements when they are irrelevant
+//On changing the search type
 $('#searchTypeSelect').change( function() { 
 	var type = this.value;
 	console.log('search type changed to', type);
-	if (type == 'single' || type == 'diff1') {
-		// switch to or stay in one-endpoint mode
-		map.removeLayer(destMarker);
-		flags.twoEndpoint = false;
-        } else { 
-		if (!(flags.twoEndpoint)) { 
-			// switch to two-endpoint mode
-			var llo = origMarker.getLatLng();
-			var lld = destMarker.getLatLng();
-			lld.lat = llo.lat;
-			lld.lng = llo.lng + 0.02;
-			map.addLayer(destMarker);
-			flags.twoEndpoint = true;
-		}
-	}
-	if (type == 'single') {
-		$('.secondaryControl').fadeOut( 500 );
-		flags.twoSearch = false;
-	} else {
-                $('.secondaryControl').fadeOut( 500 );
-                flags.twoSearch = false;
-        }
-	if (type == 'ppa') {
-		// lock arriveBy selectors and rename endpoints
-		$('#headerA').text('Origin Setup');
-		$('#headerB').text('Destination Setup');
-		$('#arriveByA').val('false').prop('disabled', true);
-		$('#arriveByB').val('true').prop('disabled', true);
-	} else {
 		$('#arriveByA').prop('disabled', false);
-		$('#arriveByB').prop('disabled', false);
-		if (type == 'single') {
-			$('#headerA').text('Search Setup');
-		} else {
-			$('#headerA').text('Search A Setup');
-			$('#headerB').text('Search B Setup');
-		}
-	}
+		$('#headerA').text('Search Setup');
 }).change(); // trigger this event (and implicitly a form change event) immediately upon binding

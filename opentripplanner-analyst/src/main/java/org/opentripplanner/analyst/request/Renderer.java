@@ -102,9 +102,13 @@ public class Renderer {
         
         BufferedImage image;
         switch (renderRequest.layer) {
-        case GTRAVELTIME :
+        case CLOSESTTRAVELTIME :
+            image = tile.sptMin(1, spt, 0, renderRequest);
+            break;
+        case AVGTRAVELTIME :
         default :
             image = tile.sptAverage(1, spt, 0, renderRequest);
+            break;
         }
         
         // add a timestamp to the image if requested. 

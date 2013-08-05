@@ -64,21 +64,11 @@ public class TileService extends RoutingResource {
         Style style = styles.get(0);
         RenderRequest renderRequest = new RenderRequest(format, layer, style, true, false);
         
-        if(layer == Layer.GTRAVELTIME)
-        {
-        	RoutingRequest[] sptRequest = new RoutingRequest[2];
-        	for(int i=0;i<sptRequest.length;i++)
-        		sptRequest[i] = buildRequest(i);
+        RoutingRequest[] sptRequest = new RoutingRequest[fromPlace.size()];
+        for(int i=0;i<sptRequest.length;i++)
+        	sptRequest[i] = buildRequest(i);
         	
-        	return renderer.getResponse(tileRequest, sptRequest, renderRequest);
-        }
-        else
-        {
-        	RoutingRequest sptRequestA = buildRequest(0);
-        	RoutingRequest sptRequestB = buildRequest(1);
-
-        	return renderer.getResponse(tileRequest, sptRequestA, sptRequestB, renderRequest);
-        }
+        return renderer.getResponse(tileRequest, sptRequest, renderRequest);
     }
 
 }

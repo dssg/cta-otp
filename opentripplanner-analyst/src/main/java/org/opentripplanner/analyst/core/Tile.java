@@ -391,6 +391,46 @@ public abstract class Tile {
         return image;
     }
 
+    public BufferedImage sptMin(
+            double k, ShortestPathTree[] spta,
+            double intercept, RenderRequest renderRequest) {
+        long t0 = System.currentTimeMillis();
+        BufferedImage image = getEmptyImage(renderRequest.style);
+        byte[] imagePixelData = ((DataBufferByte)image.getRaster().getDataBuffer()).getData();
+        int i = 0;
+        for (Sample s : getSamples()) {
+            byte pixel = UNREACHABLE;
+            if (s != null) {
+                long[] ta = new long[spta.length];
+                boolean notMax = true;
+                for(int ti=0;ti<ta.length;ti++)
+                {
+                	ta[ti] = s.eval(spta[ti]);
+                	if(ta[ti]==Long.MAX_VALUE)
+                		notMax = false;
+                }
+                if (notMax) {
+                    double t = (120-intercept)*60/k;
+                    for(int ti=0;ti<ta.length;ti++)
+                    	if(ta[ti]<t)
+                            t = ta[ti];
+                    t = t*k/60 + intercept;
+                    if (t < -120)
+                        t = -120;
+                    else if (t > 120)
+                        t = 120;
+                    pixel = (byte) t;
+                }
+            }
+            imagePixelData[i] = pixel;
+            i++;
+        }
+        long t1 = System.currentTimeMillis();
+        LOG.debug("filled in tile image from SPT in {}msec", t1 - t0);
+        return image;
+    }
+
+
     public GridCoverage2D getGridCoverage2D(BufferedImage image) {
         GridCoverage2D gridCoverage = new GridCoverageFactory()
             .create("isochrone", image, gg.getEnvelope2D());
