@@ -237,16 +237,16 @@ var displayTimes = function(fractionalHours) {
 	document.getElementById('setupTime').value = new Date(msec).toISOString().substring(0,19);
 };
 
-var fileProcess = function(evt) {
-    var ofile = evt.target.originset[0];
+function fileProcess(evt) {
+    var ofile = evt.target.files[0];
 
     var fReader = new FileReader();
 
-    fReader.onload = (function(e) {
+    fReader.onload = function(e) {
         console.log("File " + ofile.name + " read.");
         ori = e.target.result.split("\n");
         console.log("New origin set contains " + ori.length + " points.");
-    }
+    };
     fReader.readAsText(ofile);
 }
 
@@ -277,14 +277,9 @@ $('#searchTypeForm').change( mapSetupTool );
     });
 }) ($("#timeSlider"));
 
-// intercept file upload event so we can process it before reloading the map
-(function(floader) {
-    floader.bind('change', function() {
-    	fileProcess(floader); 
-        return true; // continue with map setup
-    }).change();
-    });
-}) ($("#originset"));
+// process file upload
+
+
 
 //On changing the search type
 $('#searchTypeSelect').change( function() { 
