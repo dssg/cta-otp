@@ -55,6 +55,8 @@ var flags = {
 
 };
 
+var ori = ['41.8794,-87.6097','41.9877,-87.7205'];
+
 
 // convert a map of query parameters into a query string, 
 // expanding Array values into multiple query parameters
@@ -153,14 +155,10 @@ function mapSetupTool() {
 			params.clampInitialWait = [$('#timeLenience').val() * 60];
 	}
    
-        params.fromPlace = ['41.8877,-87.6205'];
-        var ori = ['41.8794,-87.6097'];
+        params.fromPlace = [];
         for(oll in ori){
             params.fromPlace.push(ori[oll]);
         }
-        
-        /*for()
-        */
 
 	// set from and to places to the same string(s) so they work for both arriveBy and departAfter
 	params.toPlace = params.fromPlace;
@@ -239,6 +237,19 @@ var displayTimes = function(fractionalHours) {
 	document.getElementById('setupTime').value = new Date(msec).toISOString().substring(0,19);
 };
 
+var fileProcess = function(evt) {
+    var ofile = evt.target.originset[0];
+
+    var fReader = new FileReader();
+
+    fReader.onload = (function(e) {
+        console.log("File " + ofile.name + " read.");
+        ori = e.target.result.split("\n");
+        console.log("New origin set contains " + ori.length + " points.");
+    }
+    fReader.readAsText(ofile);
+}
+
 function setFormDisabled(formName, disabled) {
 	var form = document.forms[formName];
     var limit = form.elements.length;
@@ -264,10 +275,16 @@ $('#searchTypeForm').change( mapSetupTool );
     slider.bind('mouseup', function() {
     	slider.parent().trigger('change');
     });
-    offset.bind('change', function() {
-    	displayTimes(slider.val(), offset.val()); 
-    });
 }) ($("#timeSlider"));
+
+// intercept file upload event so we can process it before reloading the map
+(function(floader) {
+    floader.bind('change', function() {
+    	fileProcess(floader); 
+        return true; // continue with map setup
+    }).change();
+    });
+}) ($("#originset"));
 
 //On changing the search type
 $('#searchTypeSelect').change( function() { 

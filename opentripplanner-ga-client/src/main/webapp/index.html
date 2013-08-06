@@ -47,8 +47,11 @@
 				</select>
 			</span>
 			<div id="endpointAControls">
-				<img src="js/lib/leaflet/images/marker-green-rot.png">
 				<h2 id="headerA">Origin Setup</h2>
+                                <span>
+                                    <label for="originset">TESTING</label>
+                                    <input type="file" id="originset" name="originset[]" />
+                                </span>
 				<span>
 					<label for="timeSlider">Time of day:</label>
 					<input type="range" id="timeSlider" class="timeController" 
@@ -88,6 +91,7 @@
 				</span>
 			</div> <!-- END endpointAControls -->
 		</form>
+
 		<form>
 			<input type="button" value="Refresh Map" onclick="mapSetupTool()" class="fullWidth" />
 			<p class="footnote">
