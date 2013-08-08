@@ -415,11 +415,14 @@ public abstract class Tile {
         for (Sample s : getSamples()) {
             byte pixel = UNREACHABLE;
             if (s != null) {
-                long[] ta = new long[spta.length];
+                long tempt;
                 double t = Long.MAX_VALUE;
-                for(int ti=0;ti<ta.length;ti++)
-                    if(ta[ti]<t)
-                        t = ta[ti];
+                for(int ti=0;ti<spta.length;ti++)
+                {
+                    tempt = s.eval(spta[ti]);
+                    if(tempt<t)
+                        t = tempt;
+                }
                 if(t!=Long.MAX_VALUE)
                 {
                     t = t*k/60;
@@ -448,16 +451,21 @@ public abstract class Tile {
         for (Sample s : getSamples()) {
             byte pixel = UNREACHABLE;
             if (s != null) {
-                long[] ta = new long[spta.length];
-                long[] tb = new long[sptb.length];
+                long tempt;
                 double taf = Long.MAX_VALUE;
                 double tbf = Long.MAX_VALUE;
-                for(int ti=0;ti<ta.length;ti++)
-                    if(ta[ti]<taf)
-                        taf = ta[ti];
-                for(int ti=0;ti<tb.length;ti++)
-                    if(tb[ti]<tbf)
-                        tbf = tb[ti];
+                for(int ti=0;ti<spta.length;ti++)
+                {
+                    tempt = s.eval(spta[ti]);
+                    if(tempt<taf)
+                        taf = tempt;
+                }
+                for(int ti=0;ti<sptb.length;ti++)
+                {
+                    tempt = s.eval(sptb[ti]);
+                    if(tempt<tbf)
+                        tbf = tempt;
+                }
                 if((taf!=Long.MAX_VALUE && tbf!=Long.MAX_VALUE)||(taf==tbf))
                 {
                     double t = (taf - tbf)/60;
