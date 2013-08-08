@@ -286,7 +286,7 @@ $('#searchTypeForm').change( mapSetupTool );
 }) ($("#timeSlider"));
 
 // process file upload
-
+document.getElementById('originset').addEventListener('change', fileProcess, false);
 
 
 //On changing the search type
