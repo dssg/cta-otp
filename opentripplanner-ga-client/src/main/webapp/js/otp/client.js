@@ -140,6 +140,14 @@ function mapSetupTool() {
                 params.layers = 'closesttraveltime';
                 params.styles = 'colorchi';
                 break;
+        case 'closecomp1':
+                params.layers = 'closecompsingle';
+                params.styles = 'compchi'
+                break;
+        case 'closecompn':
+                params.layers = 'closecompmultiple';
+                params.styles = 'compchi'
+                break;
 	}
 	// store one-element arrays so we can append as needed for the second search
 	params.time = [$('#setupTime').val()];

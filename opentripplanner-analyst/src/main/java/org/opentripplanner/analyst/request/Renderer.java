@@ -102,12 +102,28 @@ public class Renderer {
         
         BufferedImage image;
         switch (renderRequest.layer) {
-        case CLOSESTTRAVELTIME :
-            image = tile.sptMin(1, spt, 0, renderRequest);
+        case DIFFERENCE :
+            image = tile.linearCombination(1, spt[0], -1, spt[1], 0, renderRequest);
+            break;
+        case HAGERSTRAND :
+            long elapsed = Math.abs(sptRequestB.dateTime - sptRequestA.dateTime);
+            image = tile.linearCombination(-1, spt[0], -1, spt[1], elapsed/60, renderRequest);
             break;
         case AVGTRAVELTIME :
+            image = tile.sptAverage(1, spt, renderRequest);
+            break;
+        case CLOSESTTRAVELTIME :
+            image = tile.sptMin(1, spt, renderRequest);
+            break;
+        case CLOSECOMPSINGLE :
+            ShortestPathTree[] sptA = new ShortestPathTree[spt.length-1];
+            for(int i=0;i<sptA.length;i++)
+                sptA[i] = spt[i];
+            image = tile.sptMinDiff(sptA, spt renderRequest);
+            break;
+        case TRAVELTIME :
         default :
-            image = tile.sptAverage(1, spt, 0, renderRequest);
+            image = tile.generateImage(spt[0], renderRequest);
             break;
         }
         

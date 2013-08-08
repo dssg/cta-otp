@@ -16,6 +16,7 @@ public enum Style {
     GRAY,
     COLOR30,
     COLORCHI,
+    COMPCHI,
     DIFFERENCE, 
     TRANSPARENT,
     MASK,
