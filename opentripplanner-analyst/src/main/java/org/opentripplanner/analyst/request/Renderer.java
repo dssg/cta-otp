@@ -60,7 +60,7 @@ public class Renderer {
             image = tile.linearCombination(1, spt[0], -1, spt[1], 0, renderRequest);
             break;
         case HAGERSTRAND :
-            long elapsed = Math.abs(sptRequestB.dateTime - sptRequestA.dateTime);
+            long elapsed = Math.abs(sptRequest[1].dateTime - sptRequest[0].dateTime);
             image = tile.linearCombination(-1, spt[0], -1, spt[1], elapsed/60, renderRequest);
             break;
         case AVGTRAVELTIME :

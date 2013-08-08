@@ -389,7 +389,7 @@ public abstract class Tile {
                     for(int ti=0;ti<ta.length;ti++)
                     	t = t + ta[ti];
                     t = t/ta.length;
-                    t = t*k/60 + intercept;
+                    t = t*k/60;
                     if (t < -120)
                         t = -120;
                     else if (t > 120)
@@ -422,7 +422,7 @@ public abstract class Tile {
                         t = ta[ti];
                 if(t!=LONG.MAX_VALUE)
                 {
-                    t = t*k/60 + intercept;
+                    t = t*k/60;
                     if (t < -120)
                         t = -120;
                     else if (t > 120)
