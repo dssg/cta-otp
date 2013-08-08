@@ -43,54 +43,8 @@ public class Renderer {
 
     @Autowired
     private SPTCache sptCache;
-
-    public Response getResponse (TileRequest tileRequest, 
-            RoutingRequest sptRequestA, RoutingRequest sptRequestB, 
-            RenderRequest renderRequest) throws Exception {
-
-        Tile tile = tileCache.get(tileRequest);
-        ShortestPathTree sptA = sptCache.get(sptRequestA);
-        ShortestPathTree sptB = sptCache.get(sptRequestB);
-        
-        BufferedImage image;
-        switch (renderRequest.layer) {
-        case DIFFERENCE :
-            image = tile.linearCombination(1, sptA, -1, sptB, 0, renderRequest);
-            break;
-        case HAGERSTRAND :
-            long elapsed = Math.abs(sptRequestB.dateTime - sptRequestA.dateTime);
-            image = tile.linearCombination(-1, sptA, -1, sptB, elapsed/60, renderRequest);
-            break;
-        case TRAVELTIME :
-        default :
-            image = tile.generateImage(sptA, renderRequest);
-        }
-        
-        // add a timestamp to the image if requested. 
-        // of course this will make it useless as a raster for analysis, but it's good for animations.
-        if (renderRequest.timestamp) {
-            DateFormat df = DateFormat.getDateTimeInstance();
-            df.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-            String ds = df.format(new Date(sptRequestA.dateTime * 1000));
-            shadowWrite(image, ds, sptRequestA.from.toString());
-
-            Graphics2D g2d = image.createGraphics();
-            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC));
-            BufferedImage legend = Tile.getLegend(renderRequest.style, 300, 50);
-            g2d.drawImage(legend, 0, image.getHeight()-50, null);
-            g2d.dispose();
-        }
-                
-        // geotiff kludge
-        if (renderRequest.format.toString().equals("image/geotiff")) {
-            GridCoverage2D gc = tile.getGridCoverage2D(image);
-            return generateStreamingGeotiffResponse(gc);
-        } else {
-            return generateStreamingImageResponse(image, renderRequest.format);
-        }
-    }
     
-    //For general accessibility (array of requests)
+    //Called by TileService.java in otp-rest-api
     public Response getResponse (TileRequest tileRequest, 
             RoutingRequest[] sptRequest,
             RenderRequest renderRequest) throws Exception {
@@ -119,7 +73,7 @@ public class Renderer {
             ShortestPathTree[] sptA = new ShortestPathTree[spt.length-1];
             for(int i=0;i<sptA.length;i++)
                 sptA[i] = spt[i];
-            image = tile.sptMinDiff(sptA, spt renderRequest);
+            image = tile.sptMinDiff(sptA, spt, renderRequest);
             break;
         case TRAVELTIME :
         default :
