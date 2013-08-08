@@ -416,11 +416,11 @@ public abstract class Tile {
             byte pixel = UNREACHABLE;
             if (s != null) {
                 long[] ta = new long[spta.length];
-                double t = LONG.MAX_VALUE;
+                double t = Long.MAX_VALUE;
                 for(int ti=0;ti<ta.length;ti++)
                     if(ta[ti]<t)
                         t = ta[ti];
-                if(t!=LONG.MAX_VALUE)
+                if(t!=Long.MAX_VALUE)
                 {
                     t = t*k/60;
                     if (t < -120)
@@ -450,15 +450,15 @@ public abstract class Tile {
             if (s != null) {
                 long[] ta = new long[spta.length];
                 long[] tb = new long[sptb.length];
-                double taf = LONG.MAX_VALUE;
-                double tbf = LONG.MAX_VALUE;
+                double taf = Long.MAX_VALUE;
+                double tbf = Long.MAX_VALUE;
                 for(int ti=0;ti<ta.length;ti++)
                     if(ta[ti]<taf)
                         taf = ta[ti];
                 for(int ti=0;ti<tb.length;ti++)
                     if(tb[ti]<tbf)
                         tbf = tb[ti];
-                if((taf!=LONG.MAX_VALUE && tbf!=LONG.MAX_VALUE)||(taf==tbf))
+                if((taf!=Long.MAX_VALUE && tbf!=Long.MAX_VALUE)||(taf==tbf))
                 {
                     double t = (taf - tbf)/60;
                     if (t < -120)
@@ -467,7 +467,7 @@ public abstract class Tile {
                         t = 120;
                     pixel = (byte) t;
                 }
-                else if(tbf!=LONG.MAX_VALUE)
+                else if(tbf!=Long.MAX_VALUE)
                 {
                     double t = 120-(tbf/60);
                     if (t<0)
