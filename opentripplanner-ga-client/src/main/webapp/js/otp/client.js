@@ -149,7 +149,7 @@ function mapSetupTool() {
                 params.styles = 'compchi'
                 break;
 	}
-	// store one-element arrays so we can append as needed for the second search
+	// store one-element arrays so we can append as needed for additional searches
 	params.time = [$('#setupTime').val()];
 	params.mode = [$('#setupMode').val()];
 	params.maxWalkDistance = [$('#setupMaxDistance').val()];

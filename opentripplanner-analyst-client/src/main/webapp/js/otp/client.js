@@ -176,8 +176,10 @@ function mapSetupTool() {
 		params.styles = 'difference';
 		break;
         case 'gtfsdiff':
-                params.layers = 'gtfsdifference';
+                params.layers = 'difference';
                 params.styles = 'difference';
+                params.routerId = ['gtfsA','gtfsB'];
+                break;
 	}
 	// store one-element arrays so we can append as needed for the second search
 	params.time = [$('#setupTime').val()];
@@ -331,7 +333,7 @@ $('#searchTypeForm').change( mapSetupTool );
 $('#searchTypeSelect').change( function() { 
 	var type = this.value;
 	console.log('search type changed to', type);
-	if (type == 'single' || type == 'diff1') {
+	if (type == 'single' || type == 'diff1' || type == gtfsdiff) {
 		// switch to or stay in one-endpoint mode
 		map.removeLayer(destMarker);
 		flags.twoEndpoint = false;
@@ -346,7 +348,7 @@ $('#searchTypeSelect').change( function() {
 			flags.twoEndpoint = true;
 		}
 	}
-	if (type == 'single') {
+	if (type == 'single' || type == 'gtfsdiff') {
 		$('.secondaryControl').fadeOut( 500 );
 		flags.twoSearch = false;
 	} else {
