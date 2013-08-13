@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ws<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
@@ -8,16 +8,13 @@
     <!-- specify a GraphService, configuring the path to the serialized Graphs -->
 	<bean id="graphService" class="org.opentripplanner.routing.impl.GraphServiceImpl">
 		<property name="path" value="/var/otp/graphs/" />
-        <!-- other optional properties for multiple graph registration -->
-        <!-- 
-        <property name="defaultRouterId" value="pdx" />
-        <property name="autoRegister">
-          <list>
-            <value>nyc</value>
-            <value>seattle</value>
-          </list>
-        </property>
-        -->
+                <!-- other optional properties for multiple graph registration -->
+                <property name="autoRegister">
+                  <list>
+                    <value>gtfsA</value>
+                    <value>gtfsB</value>
+                  </list>
+                </property>
 	</bean>
 	
 </beans>

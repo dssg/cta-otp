@@ -175,6 +175,9 @@ function mapSetupTool() {
 		params.layers = 'difference';
 		params.styles = 'difference';
 		break;
+        case 'gtfsdiff':
+                params.layers = 'gtfsdifference';
+                params.styles = 'difference';
 	}
 	// store one-element arrays so we can append as needed for the second search
 	params.time = [$('#setupTime').val()];

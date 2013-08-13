@@ -12,6 +12,9 @@
                           <bean class="org.opentripplanner.graph_builder.model.GtfsBundle">
                               <property name="url" value="http://www.transitchicago.com/downloads/sch_data/google_transit.zip" />
                           </bean>
+                          <bean class="org.opentripplanner.graph_builder.model.GtfsBundle">
+                              <property name="url" value="http://www.gtfs-data-exchange.com/agency/metra/latest.zip" />
+                          </bean>
                       </list>
                   </property>
               </bean>
