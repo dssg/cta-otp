@@ -333,7 +333,7 @@ $('#searchTypeForm').change( mapSetupTool );
 $('#searchTypeSelect').change( function() { 
 	var type = this.value;
 	console.log('search type changed to', type);
-	if (type == 'single' || type == 'diff1' || type == gtfsdiff) {
+	if (type == 'single' || type == 'diff1' || type == 'gtfsdiff') {
 		// switch to or stay in one-endpoint mode
 		map.removeLayer(destMarker);
 		flags.twoEndpoint = false;
