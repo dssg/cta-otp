@@ -7,7 +7,7 @@
     <!-- Configure the GraphBuilderTask -->
     <bean id="graphBuilderTask" class="org.opentripplanner.graph_builder.GraphBuilderTask">
         <!-- The path where the graph bundle will be written -->
-        <property name="path" value="/Users/Wolfie/TEST" />
+        <property name="path" value="/var/otp/graphs/gtfsA" />
         <property name="graphBuilders">
             <list>
                 <!-- Include an OpenStreetMap graph builder plugin -->
