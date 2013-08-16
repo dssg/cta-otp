@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <!-- Configure the GraphBuilderTask -->
+    <bean id="graphBuilderTask" class="org.opentripplanner.graph_builder.GraphBuilderTask">
+        <!-- The path where the graph bundle will be written -->
+        <property name="path" value="/Users/Wolfie/TEST" />
+        <property name="graphBuilders">
+            <list>
+                <!-- Include an OpenStreetMap graph builder plugin -->
+                <bean class="org.opentripplanner.graph_builder.impl.osm.OpenStreetMapGraphBuilderImpl">
+                    <property name="provider">
+                        <!-- Use an OSM provider that will automatically download OSM data in a specified region -->
+                        <bean class="org.opentripplanner.openstreetmap.impl.RegionBasedOpenStreetMapProviderImpl">
+                            <property name="regionsSource">
+                                <!-- The region to collect OSM data -->
+                                <bean class="org.opentripplanner.openstreetmap.impl.FixedRegionSourceImpl">
+                                    <property name="latFrom" value="41.58231867751335" />
+                                    <property name="lonFrom" value="-87.98050210571289" />
+                                    <property name="latTo" value="42.15839305008159" />
+                                    <property name="lonTo" value="-87.48001998901367" />
+                                </bean>
+                            </property>
+                            <!-- Specify where downloaded OSM data will be cached -->
+                            <property name="cacheDirectory" value="/tmp/osm-cache" />
+                        </bean>
+                    </property>
+                    <property name="defaultWayPropertySetSource">
+                        <bean class="org.opentripplanner.graph_builder.impl.osm.DefaultWayPropertySetSource" />
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>
