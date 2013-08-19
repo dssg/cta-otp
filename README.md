@@ -1,13 +1,47 @@
 cta-otp
 ============
 
-## What Is This?
+## Basics
 
-A version of OpenTripPlanner configured for use in the dssg CTA project. Base repository is at https://github.com/OpenPlans/OpenTripPlanner
+### What Is OpenTripPlanner?
+
+OpenTripPlanner is an open source trip planning software package, developed by OpenPlans. The package consists of a core routing engine, plus two clients for different use cases:
+
+1. opentripplanner-webapp: Basic trip planning, similar to the Google Maps interface. Route from one origin to one destination at a time, and display the route to the user.
+
+2. opentripplanner-analyst-client: From a single origin point, route to a grid of points, then generate a map overlay which is color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison.
+
+The base OTP repository can be found at:
+
+https://github.com/OpenPlans/OpenTripPlanner
+
+Also be sure to check out the very informative wiki at https://github.com/OpenPlans/OpenTripPlanner/wiki
+
+### What Is This?
+
+This is a version of OpenTripPlanner configured for use in the dssg CTA project. The repository was cloned from the main repository, then four kinds of changes were made:
+
+1. Minor fixes and aesthetic changes to the webapps (fixed broken map options, added new options, changed color scheme)
+ 
+2. Created new webapp "opentripplanner-ga-client." Instead of routing from a single point to a grid of points, routes from a specified set of points (the user can upload a file of latlong coordinates) to a grid of points. The coloration changes based on the mode selected - currently, it can be colored by the average travel time to the origin points, or by the travel time to the closest origin point.
+
+3. Modified several java files to allow for the extension of analyst features required for the opentripplanner-ga-client and related future functionality.
+
+4. Optimized the JavaScript in the clients for use in the city of Chicago (auto-centered camera on Chicago, removed references to the D.C. Purple Line.
+
+For a more thorough list of changes, see https://github.com/dssg/cta-otp/wiki/Index-of-Modified-Files
 
 ## How Do I Install This?
 
+Well, that depends on what exactly you want to do with OpenTripPlanner. 
+
+https://github.com/openplans/OpenTripPlanner/wiki/Install will get you started with OpenTripPlanner in general.
+
+https://github.com/dssg/cta-otp/wiki/AWS-EC2-Setup contains information on how to get this build of OpenTripPlanner up and running on an Amazon EC2 instance.
+
 ## What Needs to be Done?
+
+https://github.com/dssg/cta-otp/wiki/To-Do-List
 
 ## Contact Info
 
