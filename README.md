@@ -11,6 +11,8 @@ OpenTripPlanner is an open source trip planning software package, developed by O
 
 2. opentripplanner-analyst-client: From a single origin point, route to a grid of points, then generate a map overlay which is color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison.
 
+Additionally, there is an offline "Batch Analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that can then be used with other applications (such as QGIS).
+
 The base OTP repository can be found at:
 
 https://github.com/OpenPlans/OpenTripPlanner
