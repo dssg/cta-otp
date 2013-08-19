@@ -54,6 +54,7 @@ var aerialLayer = new L.TileLayer(aerialURL,
 var flags = {
 	twoEndpoint: false,
 	twoSearch: false,
+        oneEndpointTwoSearch: false
 };
 
 
@@ -218,6 +219,9 @@ function mapSetupTool() {
     if (flags.twoEndpoint) {
     	var d = destMarker.getLatLng();
     	params.fromPlace.push(d.lat + ',' + d.lng);
+
+    } else if (flags.oneEndpointTwoSearch) {
+        params.fromPlace.push(params.fromPlace[0]);
     }
 	// set from and to places to the same string(s) so they work for both arriveBy and departAfter
 	params.toPlace = params.fromPlace;
@@ -355,6 +359,11 @@ $('#searchTypeSelect').change( function() {
                 $('.secondaryControl').fadeIn( 500 );
 		flags.twoSearch = true;
         }
+	if (type == 'diff1' || type == 'gtfsdiff') {
+		flags.oneEndpointTwoSearch = true;
+	} else {
+		flags.oneEndpointTwoSearch = false;
+        }
 	if (type == 'ppa') {
 		// lock arriveBy selectors and rename endpoints
 		$('#headerA').text('Origin Setup');
@@ -364,7 +373,7 @@ $('#searchTypeSelect').change( function() {
 	} else {
 		$('#arriveByA').prop('disabled', false);
 		$('#arriveByB').prop('disabled', false);
-		if (type == 'single') {
+		if (type == 'single' || type == 'gtfsdiff') {
 			$('#headerA').text('Search Setup');
 		} else {
 			$('#headerA').text('Search A Setup');

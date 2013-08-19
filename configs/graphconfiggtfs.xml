@@ -45,7 +45,7 @@
 -->
   
       <bean id="graphBuilderTask" class="org.opentripplanner.graph_builder.GraphBuilderTask">
-          <property name="path" value="/tmp/graph-bundle" />
+          <property name="path" value="/var/otp/graphs/gtfsB" />
           <property name="graphBuilders">
               <list>
                   <!-- GTFS comes before OSM, because we use the loaded set of stops to determine our OSM coverage -->
