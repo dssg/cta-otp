@@ -5,7 +5,9 @@ cta-otp
 
 ### What Is OpenTripPlanner?
 
-OpenTripPlanner is an open source trip planning software package, developed by OpenPlans. The package consists of a core routing engine, plus two clients for different use cases:
+OpenTripPlanner is an open source trip planning software package, developed by OpenPlans. 
+
+The package consists of a core routing engine, plus two clients for different use cases:
 
 1. opentripplanner-webapp: Basic trip planning, similar to the Google Maps interface. Route from one origin to one destination at a time, and display the route to the user.
 
