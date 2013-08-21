@@ -33,11 +33,13 @@ This is a version of OpenTripPlanner configured for use in the dssg CTA project.
 
 For a more thorough list of changes, see https://github.com/dssg/cta-otp/wiki/Index-of-Modified-Files
 
-## How Do I Install This?
+## How Do I Install OpenTripPlanner?
 
 Well, that depends on what exactly you want to do with OpenTripPlanner. 
 
 https://github.com/openplans/OpenTripPlanner/wiki/Install will get you started with OpenTripPlanner in general.
+
+https://github.com/dssg/cta-otp/wiki/Using-Eclipse contains brief instructions about how to set up a development environment in Eclipse. At the bottom is a link to a guide to set up a local test server using Tomcat.
 
 https://github.com/dssg/cta-otp/wiki/AWS-EC2-Setup contains information on how to get this build of OpenTripPlanner up and running on an Amazon EC2 instance.
 
