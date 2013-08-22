@@ -1,4 +1,4 @@
-/* This program is free software: you can redistribute it and/or
+[/* This program is free software: you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public License
  as published by the Free Software Foundation, either version 3 of
  the License, or (at your option) any later version.
@@ -100,8 +100,9 @@ public class WebMapService extends RoutingResource {
             LOG.debug("resulting raster dimensions are {}w x {}h", width, height);
         }
 
-        RoutingRequest reqA = this.buildRequest(0);
-        RoutingRequest reqB = this.buildRequest(1);
+        RoutingRequest sptRequest[] = new RoutingRequest[fromPlace.size()]; 
+        sptRequest[0] = this.buildRequest(0);
+        sptRequest[1] = this.buildRequest(1);
         
         LOG.debug("params {}", uriInfo.getQueryParameters());
         LOG.debug("layers = {}", layers);
@@ -109,7 +110,7 @@ public class WebMapService extends RoutingResource {
         LOG.debug("version = {}", version);
         LOG.debug("srs = {}", srs.getName());
         LOG.debug("bbox = {}", bbox);
-        LOG.debug("search time = {}", reqA.getDateTime());
+        LOG.debug("search time = {}", sptRequest[0].getDateTime());
         
 //        SPTRequest sptRequestA, sptRequestB = null;
 //        if (originLat == null && originLon == null) {
@@ -127,13 +128,7 @@ public class WebMapService extends RoutingResource {
         Style style = styles.get(0);
         RenderRequest renderRequest = new RenderRequest(format, layer, style, transparent, timestamp);
         
-        if (layer != Layer.DIFFERENCE) {
-//            noPurple = req.clone();
-//            noPurple.setBannedRoutes("Test_Purple");
-            reqB = null;
-        }
-        
-        return renderer.getResponse(tileRequest, reqA, reqB, renderRequest);
+        return renderer.getResponse(tileRequest, sptRequest, renderRequest);
     }
 
     /** Yes, this is loading a static capabilities response from a file 
