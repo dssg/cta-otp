@@ -67,7 +67,7 @@ General Accessibility demo (unstable) at: http://ec2-50-112-86-42.us-west-2.comp
 
 Regular Trip Planning webapp at: http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-webapp/
 
-Note: These demos are hosted on the DSSG OTP development AWS instance. They are frequently taken down and changed as part of the development process - if you can't access them, this is probably why!
+ NOTE: THESE DEMOS ARE CURRENTLY UNAVAILABLE DUE TO SERVER ISSUES.
 
 ## Open Source License
 
