@@ -5,69 +5,66 @@ cta-otp
 
 ### What Is OpenTripPlanner?
 
-OpenTripPlanner is an open source trip planning software package, developed by OpenPlans. 
+[OpenTripPlanner](opentripplanner.com) (OTP) is an open source trip planning software package, originally developed by [OpenPlans](http://openplans.org/). 
 
-The package consists of a core routing engine, plus two clients for different use cases:
+OTP consists of a core transportation routing engine - algorithms that find the shortest/longest/etc. path between location a and b through transit, biking, and other transportation modes - plus two user-facing apps for different use cases:
 
-1. opentripplanner-webapp: Basic trip planning, similar to the Google Maps interface. Route from one origin to one destination at a time, and display the route to the user.
+1. `opentripplanner-webapp`: Basic trip planning, similar to getting trip directions through Google Maps. The intended user is anyone figuring out how to get from here to there. The app finds a route from a single origin to a single destination at a time, and display the route to the user.
 
-2. opentripplanner-analyst-client: From a single origin point, route to a grid of points, then generate a map overlay which is color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison.
+2. `opentripplanner-analyst-client`: travel-time maps for transportation planners. From a single origin point, this app calculates routes to a grid of destination points, then generates a map overlay color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison. The intended users are transportation planners trying to visualize and understand mobility in a given city. For an introduction to OTP Analyst, [click here](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU). OTP Analyst is now being developed by [Conveyal](http://www.conveyal.com/).
 
-Additionally, there is an offline "Batch Analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that can then be used with other applications (such as QGIS).
+3. There's also an offline "Batch Analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that can then be used with other applications (such as QGIS).
 
-The base OTP repository can be found at:
+This project assumes you're already familiar with OTP. To get strated, check out the project's [very informative wiki](https://github.com/OpenPlans/OpenTripPlanner/wiki) and the [main OTP repo](https://github.com/OpenPlans/OpenTripPlanner).
 
-https://github.com/OpenPlans/OpenTripPlanner
 
-Also be sure to check out the very informative wiki at https://github.com/OpenPlans/OpenTripPlanner/wiki
+### What Is This Project?
 
-### What Is This?
+This is a version of OpenTripPlanner customized for use by the CTA. This repository was cloned from the [OTP repository](https://github.com/OpenPlans/OpenTripPlanner), then four changes were made:
 
-This is a version of OpenTripPlanner configured for use in the dssg CTA project. The repository was cloned from the main repository, then four kinds of changes were made:
-
-1. Minor fixes and aesthetic changes to the webapps (fixed broken map options, added new options, changed color scheme)
+1. Minor fixes and aesthetic changes to the webapps (fixed broken map options, added new options, changed color legend for trip times)
  
-2. Created new webapp "opentripplanner-ga-client." Instead of routing from a single point to a grid of points, routes from a specified set of points (the user can upload a file of latlong coordinates) to a grid of points. The coloration changes based on the mode selected - currently, it can be colored by the average travel time to the origin points, or by the travel time to the closest origin point.
+2. Created new webapp `opentripplanner-ga-client`. Instead of routing from a single point to a grid of points, routes from a specified set of points (the user can upload a file of lat-long coordinates) to a grid of points. The coloration changes based on the mode selected - currently, it can be colored by the average travel time to the origin points, or by the travel time to the closest origin point.
 
 3. Modified several java files to allow for the extension of analyst features required for the opentripplanner-ga-client and related future functionality.
 
-4. Optimized the JavaScript in the clients for use in the city of Chicago (auto-centered camera on Chicago, removed references to the D.C. Purple Line.
+4. Optimized the JavaScript in the client webapps for use in the city of Chicago - auto-centered camera on Chicago, removed references to the D.C. Purple Line.
 
-For a more thorough list of changes, see https://github.com/dssg/cta-otp/wiki/Index-of-Modified-Files
+For a more thorough list of changes, [click here](https://github.com/dssg/cta-otp/wiki/Index-of-Modified-Files).
+
+## Hosted Demos
+We've deployed the OTP trip planning, analyst, and general accessbility apps for the Chicago Transit Athority to use.
+
+- Regular Trip Planning webapp: http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-webapp/
+
+- Analyst demo: http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-analyst-client/
+
+- General accessibility demo (unstable): http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-ga-client/
+
+**NOTE: THESE DEMOS ARE CURRENTLY UNAVAILABLE DUE TO SERVER ISSUES.**
+
 
 ## How Do I Install OpenTripPlanner?
 
 Well, that depends on what exactly you want to do with OpenTripPlanner. 
 
-https://github.com/openplans/OpenTripPlanner/wiki/Install will get you started with OpenTripPlanner in general.
+- https://github.com/openplans/OpenTripPlanner/wiki/Install will get you started with OpenTripPlanner in general.
 
-https://github.com/dssg/cta-otp/wiki/Using-Eclipse contains brief instructions about how to set up a development environment in Eclipse. At the bottom is a link to a guide to set up a local test server using Tomcat.
+- https://github.com/dssg/cta-otp/wiki/Using-Eclipse contains brief instructions about how to set up a development environment in Eclipse. At the bottom is a link to a guide to set up a local test server using Tomcat.
 
-https://github.com/dssg/cta-otp/wiki/AWS-EC2-Setup contains information on how to get this build of OpenTripPlanner up and running on an Amazon EC2 instance.
+- https://github.com/dssg/cta-otp/wiki/AWS-EC2-Setup contains information on how to get this build of OpenTripPlanner up and running on an Amazon EC2 instance.
 
-## What Needs to be Done?
+## Contributing
 
-https://github.com/dssg/cta-otp/wiki/To-Do-List
+- Please check our [issue tracker](https://github.com/dssg/cta-otp/wiki/To-Do-List) to see what's on our roadmap. Pull requests welcome!
 
-## Contact Info
 
-So far, all of the work in this repository that differs from the main OTP build has been carried out by David Sekora. He can be reached at DJSekora@gmail.com
+## Getting in touch
+- All of the work in this repository that differs from the main OTP build has been carried out by David Sekora. He can be reached at DJSekora@gmail.com
 
-### Google Groups
+- OTP itself has an active mailing list: https://groups.google.com/forum/#!forum/opentripplanner-users
 
-For general OTP use: https://groups.google.com/forum/#!forum/opentripplanner-users
-
-For more technical OTP development questions: https://groups.google.com/forum/#!forum/opentripplanner-developers
-
-## Hosted Demos
-
-Current Analyst demo hosted at: http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-analyst-client/
-
-General Accessibility demo (unstable) at: http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-ga-client/
-
-Regular Trip Planning webapp at: http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-webapp/
-
- NOTE: THESE DEMOS ARE CURRENTLY UNAVAILABLE DUE TO SERVER ISSUES.
+- For more technical OTP development questions: https://groups.google.com/forum/#!forum/opentripplanner-developers
 
 ## Open Source License
 
