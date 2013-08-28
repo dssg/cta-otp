@@ -1,10 +1,12 @@
 Open Trip Planner: CTA Edition
 ============
+The OTP CTA project is a version of the [OpenTripPlanner](opentripplanner.com) (OTP) software tailored for use in the city of Chicago by the [Chicago Transit Authority](www.transitchicago.org) (CTA). It also adds features to the core OTP software.
 
+This project is part of the 2013 [Data Science for Social Good](www.dssg.io) fellowship, in partnership with the CTA.
 
 ## What Is OpenTripPlanner?
 
-[OpenTripPlanner](opentripplanner.com) (OTP) is an open source trip planning software package, originally developed by [OpenPlans](http://openplans.org/). 
+OTP is an open source trip planning software package, originally developed by [OpenPlans](http://openplans.org/). 
 
 OTP consists of a core transportation routing engine - algorithms that find the shortest/longest/etc. path between location a and b through transit, biking, and other transportation modes - plus two user-facing apps for different use cases:
 
