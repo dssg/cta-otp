@@ -1,9 +1,8 @@
-cta-otp
+Open Trip Planner: CTA Edition
 ============
 
-## Basics
 
-### What Is OpenTripPlanner?
+## What Is OpenTripPlanner?
 
 [OpenTripPlanner](opentripplanner.com) (OTP) is an open source trip planning software package, originally developed by [OpenPlans](http://openplans.org/). 
 
@@ -18,7 +17,7 @@ OTP consists of a core transportation routing engine - algorithms that find the 
 This project assumes you're already familiar with OTP. To get strated, check out the project's [very informative wiki](https://github.com/OpenPlans/OpenTripPlanner/wiki) and the [main OTP repo](https://github.com/OpenPlans/OpenTripPlanner).
 
 
-### What Is This Project?
+## What Is This Project?
 
 This is a version of OpenTripPlanner customized for use by the CTA. This repository was cloned from the [OTP repository](https://github.com/OpenPlans/OpenTripPlanner), then four changes were made:
 
