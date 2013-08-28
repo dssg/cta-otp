@@ -16,7 +16,7 @@ OTP consists of a core transportation routing engine - algorithms that find the 
 
 3. **Batch analyst app**: there's also an offline "batch analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that can then be used with other applications (i.e. desktop GIS software such as [QGIS](http://www.qgis.org/).
 
-This project assumes you're already familiar with OTP. To get strated, check out the project's [very informative wiki](https://github.com/OpenPlans/OpenTripPlanner/wiki) and the [main OTP repo](https://github.com/OpenPlans/OpenTripPlanner).
+This project assumes you're already familiar with OTP. To get started, check out the project's [very informative wiki](https://github.com/OpenPlans/OpenTripPlanner/wiki) and the [main OTP repo](https://github.com/OpenPlans/OpenTripPlanner).
 
 
 ## What Is This Project?
