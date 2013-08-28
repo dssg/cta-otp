@@ -55,7 +55,7 @@ Well, that depends on what exactly you want to do with OpenTripPlanner.
 
 ## Contributing
 
-- Please check our [issue tracker](https://github.com/dssg/cta-otp/wiki/To-Do-List) to see what's on our roadmap. Pull requests welcome!
+- Please check our [to-do list](https://github.com/dssg/cta-otp/wiki/To-Do-List) to see what's on our roadmap. Pull requests welcome!
 
 
 ## Getting in touch
