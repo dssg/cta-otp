@@ -2,19 +2,19 @@ Open Trip Planner: CTA Edition
 ============
 The OTP CTA project is a version of the [OpenTripPlanner](http://opentripplanner.com) (OTP) software tailored for use in the city of Chicago by the [Chicago Transit Authority](http://www.transitchicago.com) (CTA). It also adds features to the core OTP software.
 
-This project is part of the 2013 [Data Science for Social Good](http://www.dssg.io) fellowship, in partnership with the CTA.
+This project is part of the 2013 [Data Science for Social Good](http://www.dssg.io) fellowship, in partnership with the CTA. We implemented OTP for Chicago because the CTA wanted to use [OTP Analyst](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU) to visualize how public transit affects residents' mobility.
 
 ## What Is OpenTripPlanner?
 
 OTP is an open source trip planning software package, originally developed by [OpenPlans](http://openplans.org/). 
 
-OTP consists of a core transportation routing engine - algorithms that find the path between location a and b through transit, biking, and other transportation modes - that powers several user-facing apps for different use cases:
+The core of OTP core transportation **routing engine** - [graph algorithms](http://en.wikipedia.org/wiki/A*_search_algorithm) that find the shortest/fastest path between location a and b through transit, biking, and other transportation modes. This routing engine powers several user-facing apps, some for transit riders and others for planners:
 
-1. **Trip planning app** (`opentripplanner-webapp`): Basic trip planning, similar to getting trip directions through Google Maps. The intended user is anyone figuring out how to get from here to there. The app finds a route from a single origin to a single destination at a time, and display the route to the user.
+1. **Trip planning app** (`opentripplanner-webapp`): Basic trip planning tool, similar to getting trip directions through Google Maps. The intended user is anyone figuring out how to get from here to there. The app finds a route from a single origin to a single destination at a time, and display the route to the user.
 
 2. **Analyst app** (`opentripplanner-analyst-client`): travel-time maps for transportation planners. From a single origin point, this app calculates routes to a grid of destination points, then generates a map overlay color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison. The intended users are transportation planners trying to visualize and understand mobility in a given city. For an introduction to OTP Analyst, [click here](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU). OTP Analyst is now being developed by [Conveyal](http://www.conveyal.com/).
 
-3. **Batch analyst app**: there's also an offline "batch analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that can then be used with other applications (i.e. desktop GIS software such as [QGIS](http://www.qgis.org/).
+3. **Batch analyst app**: there's also an offline "batch analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that other applications can use (i.e. desktop GIS software such as [QGIS](http://www.qgis.org/).
 
 This project assumes you're already familiar with OTP. To get started, check out the project's [very informative wiki](https://github.com/OpenPlans/OpenTripPlanner/wiki) and the [main OTP repo](https://github.com/OpenPlans/OpenTripPlanner).
 
@@ -45,7 +45,7 @@ We've deployed the OTP trip planning, analyst, and general accessbility apps for
 
 ## How Do I Install OpenTripPlanner?
 
-Well, that depends on what exactly you want to do with OpenTripPlanner. 
+Well, that depends on what exactly you want to do with the software. 
 
 - https://github.com/openplans/OpenTripPlanner/wiki/Install will get you started with OpenTripPlanner in general.
 
