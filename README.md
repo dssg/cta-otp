@@ -10,11 +10,11 @@ OTP is an open source trip planning software package, originally developed by [O
 
 OTP consists of a core transportation routing engine - algorithms that find the shortest/longest/etc. path between location a and b through transit, biking, and other transportation modes - plus two user-facing apps for different use cases:
 
-1. `opentripplanner-webapp`: Basic trip planning, similar to getting trip directions through Google Maps. The intended user is anyone figuring out how to get from here to there. The app finds a route from a single origin to a single destination at a time, and display the route to the user.
+1. **Trip planner app** (`opentripplanner-webapp`): Basic trip planning, similar to getting trip directions through Google Maps. The intended user is anyone figuring out how to get from here to there. The app finds a route from a single origin to a single destination at a time, and display the route to the user.
 
-2. `opentripplanner-analyst-client`: travel-time maps for transportation planners. From a single origin point, this app calculates routes to a grid of destination points, then generates a map overlay color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison. The intended users are transportation planners trying to visualize and understand mobility in a given city. For an introduction to OTP Analyst, [click here](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU). OTP Analyst is now being developed by [Conveyal](http://www.conveyal.com/).
+2. **Analyst app** (`opentripplanner-analyst-client`): travel-time maps for transportation planners. From a single origin point, this app calculates routes to a grid of destination points, then generates a map overlay color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison. The intended users are transportation planners trying to visualize and understand mobility in a given city. For an introduction to OTP Analyst, [click here](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU). OTP Analyst is now being developed by [Conveyal](http://www.conveyal.com/).
 
-3. There's also an offline "Batch Analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that can then be used with other applications (such as QGIS).
+3. **Batch analyst app**: there's also an offline "batch analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that can then be used with other applications (i.e. desktop GIS software such as [QGIS](http://www.qgis.org/).
 
 This project assumes you're already familiar with OTP. To get strated, check out the project's [very informative wiki](https://github.com/OpenPlans/OpenTripPlanner/wiki) and the [main OTP repo](https://github.com/OpenPlans/OpenTripPlanner).
 
@@ -23,13 +23,13 @@ This project assumes you're already familiar with OTP. To get strated, check out
 
 This is a version of OpenTripPlanner customized for use by the CTA. This repository was cloned from the [OTP repository](https://github.com/OpenPlans/OpenTripPlanner), then four changes were made:
 
-1. Minor fixes and aesthetic changes to the webapps (fixed broken map options, added new options, changed color legend for trip times)
+1. **OTP for Chicago**: optimized the JavaScript in the trip planner and analyst client webapps for use in the city of Chicago - auto-centered camera on Chicago, removed references to the D.C. Purple Line.
+
+2. **Better colors for analyst maps**: made minor fixes and aesthetic changes to the webapps (fixed broken map options, added new options, changed color legend for trip times)
  
-2. Created new webapp `opentripplanner-ga-client`. Instead of routing from a single point to a grid of points, routes from a specified set of points (the user can upload a file of lat-long coordinates) to a grid of points. The coloration changes based on the mode selected - currently, it can be colored by the average travel time to the origin points, or by the travel time to the closest origin point.
+3. **New OTP app: general accessibility**: created a new webapp `opentripplanner-ga-client`. Instead of visualizing trip times from one point on the map to every other point, this tool visualizes how "accessible" or "connected" each point on the map is to every other. routing from a single point to a grid of points, routes from a specified set of points (the user can upload a file of lat-long coordinates) to a grid of points. The coloration changes based on the mode selected - currently, it can be colored by the average travel time to the origin points, or by the travel time to the closest origin point.
+- Modified several java files to allow for the extension of analyst features required for the opentripplanner-ga-client and related future functionality.
 
-3. Modified several java files to allow for the extension of analyst features required for the opentripplanner-ga-client and related future functionality.
-
-4. Optimized the JavaScript in the client webapps for use in the city of Chicago - auto-centered camera on Chicago, removed references to the D.C. Purple Line.
 
 For a more thorough list of changes, [click here](https://github.com/dssg/cta-otp/wiki/Index-of-Modified-Files).
 
