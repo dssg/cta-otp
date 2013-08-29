@@ -4,7 +4,7 @@ The OTP CTA project is a version of the [OpenTripPlanner](http://opentripplanner
 
 This project is part of the 2013 [Data Science for Social Good](http://www.dssg.io) fellowship, in partnership with the CTA. We implemented OTP for Chicago because the CTA wanted to use [OTP Analyst](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU) to visualize how public transit affects residents' mobility.
 
-[![Chicago Transit Authority](https://raw.github.com/dssg/cta-otp/images/CTALogo.jpg)](http://www.transitchicago.com) [![Data Science for Social Good](https://raw.github.com/dssg/cta-otp/images/DSSGLogo.jpg)](http://www.dssg.io)
+[![Chicago Transit Authority](http://dssg.io/img/partners/cta_small.png)](http://www.transitchicago.com) [![Data Science for Social Good](http://dssg.io/img/logo.png)](http://www.dssg.io)
 
 ## What Is OpenTripPlanner?
 
@@ -49,6 +49,8 @@ We've deployed the OTP trip planning, analyst, and general accessbility apps for
 ![OpenTripPlanner Analyst](https://raw.github.com/dssg/cta-otp/images/OTPAnalyst.jpg) 
 
 ![OpenTripPlanner GAnalyst](https://raw.github.com/dssg/cta-otp/images/OTPGAnalyst.jpg) 
+
+![OpenTripPlanner Batch Analyst](https://raw.github.com/dssg/cta-otp/images/OTPBatchAnalyst.jpg)
 
 
 ## How Do I Install OpenTripPlanner?
