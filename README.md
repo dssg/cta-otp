@@ -4,6 +4,8 @@ The OTP CTA project is a version of the [OpenTripPlanner](http://opentripplanner
 
 This project is part of the 2013 [Data Science for Social Good](http://www.dssg.io) fellowship, in partnership with the CTA. We implemented OTP for Chicago because the CTA wanted to use [OTP Analyst](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU) to visualize how public transit affects residents' mobility.
 
+![Chicago Transit Authority](https://raw.github.com/dssg/cta-otp/images/CTALogo.jpg) ![Chicago Transit Authority](https://raw.github.com/dssg/cta-otp/images/DSSGLogo.jpg)
+
 ## What Is OpenTripPlanner?
 
 OTP is an open source trip planning software package, originally developed by [OpenPlans](http://openplans.org/). 
@@ -25,9 +27,9 @@ This is a version of OpenTripPlanner customized for use by the CTA. This reposit
 
 1. **OTP and OTP Analyst for Chicago**: optimized the JavaScript in the trip planner and analyst client webapps for use in the city of Chicago - auto-centered camera on Chicago, removed references to the D.C. Purple Line.
 
-2. **Better colors in OTP Analyst**: made minor fixes and aesthetic changes to the webapps (fixed broken map options, added new options, changed color legend for trip times)
+2. **Aesthetic changes to OTP Analyst**: made minor fixes and aesthetic changes to the webapps (fixed broken map options, added new options, changed color legend for trip times)
  
-3. **New OTP app: general accessibility**: created a new webapp `opentripplanner-ga-client`. Instead of visualizing trip times from one point on the map to every other point, this tool visualizes how "accessible" or "connected" each point on the map is to every other. The app works by calclating routes from a specified set of points (the user can upload a file of lat-long coordinates) to a grid of points. The map colors change based on the mode selected - currently, it can be colored by the average travel time to the origin points, or by the travel time to the closest origin point. In addition to the webapp, this required modifying several java files to allow for the extension of analyst features required for the opentripplanner-ga-client and related future functionality.
+3. **New OTP app for general accessibility**: created a new webapp `opentripplanner-ga-client`. Instead of visualizing trip times from one point on the map to every other point, this tool visualizes how "accessible" or "connected" each point on the map is to every other. The app works by calclating routes from a specified set of points (the user can upload a file of lat-long coordinates) to a grid of points. The map colors change based on the mode selected - currently, it can be colored by the average travel time to the origin points, or by the travel time to the closest origin point. In addition to the webapp, this required modifying several java files to allow for the extension of analyst features required for the opentripplanner-ga-client and related future functionality.
 
 For a more thorough list of changes, [click here](https://github.com/dssg/cta-otp/wiki/Index-of-Modified-Files).
 
