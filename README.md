@@ -46,7 +46,9 @@ We've deployed the OTP trip planning, analyst, and general accessbility apps for
 
 ## Screenshots
 
-![](https://raw.github.com/dssg/cta-otp/images/CTALogo.jpg) 
+![OpenTripPlanner Analyst](https://raw.github.com/dssg/cta-otp/images/OTPAnalyst.jpg) 
+
+![OpenTripPlanner GAnalyst](https://raw.github.com/dssg/cta-otp/images/OTPGAnalyst.jpg) 
 
 
 ## How Do I Install OpenTripPlanner?
