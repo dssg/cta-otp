@@ -8,7 +8,7 @@ This project is part of the 2013 [Data Science for Social Good](http://www.dssg.
 
 ## What Is OpenTripPlanner?
 
-OTP is an open source trip planning software package, originally developed by [OpenPlans](http://openplans.org/).
+OTP is an open source [trip planning](http://en.wikipedia.org/wiki/Journey_planner) software package, originally developed by [OpenPlans](http://openplans.org/).
 
 The core of OTP is a transportation **routing engine** - [graph algorithms](http://en.wikipedia.org/wiki/A*_search_algorithm) that find the shortest/fastest path between location a and b through transit, biking, and other transportation modes. This routing engine powers several user-facing apps, some for transit riders and others for planners:
 
