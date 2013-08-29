@@ -2,9 +2,9 @@ Open Trip Planner: CTA Edition
 ============
 The OTP CTA project is a version of the [OpenTripPlanner](http://opentripplanner.com) (OTP) software tailored for use in the city of Chicago by the [Chicago Transit Authority](http://www.transitchicago.com) (CTA). It also adds features to the core OTP software.
 
-This project is part of the 2013 [Data Science for Social Good](http://www.dssg.io) fellowship, in partnership with the CTA. We implemented OTP for Chicago because the CTA wanted to use [OTP Analyst](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU) to visualize how public transit affects residents' mobility.
+[![Chicago Transit Authority](http://dssg.io/img/partners/cta_small.png)](http://www.transitchicago.com) 
 
-[![Chicago Transit Authority](http://dssg.io/img/partners/cta_small.png)](http://www.transitchicago.com) [![Data Science for Social Good](http://dssg.io/img/logo.png)](http://www.dssg.io)
+This project is part of the 2013 [Data Science for Social Good](http://www.dssg.io) fellowship, in partnership with the CTA. We implemented OTP for Chicago because the CTA wanted to use [OTP Analyst](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU) to visualize how public transit affects residents' mobility.
 
 ## What Is OpenTripPlanner?
 
@@ -16,7 +16,7 @@ The core of OTP is a transportation **routing engine** - [graph algorithms](http
 
 2. **OTP Analyst app** (`opentripplanner-analyst-client`): travel-time maps for transportation planners. From a single origin point, this app calculates routes to a grid of destination points, then generates a map overlay color-coded by travel time. There are several modes which allow for addition of a second set of routing parameters for comparison. The intended users are transportation planners trying to visualize and understand mobility in a given city. For an introduction to OTP Analyst, [click here](http://opentripplanner.com/2012/07/visualizing-urban-accessibility-with-opentripplanner-analyst/#.Uh5F9GRASoU).
 
-3. **Batch analyst app**: there's also an offline "batch analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that other applications can use (i.e. desktop GIS software such as [QGIS](http://www.qgis.org/).
+3. **Batch analyst app**: there's also an offline "batch analyst" application, which allows for a wider range of routing use cases. You can route from a set of origin points to a set of destination points, outputting travel times (and possibly other information), either in CSV form or as a TIFF raster that other applications can use (i.e. desktop GIS software such as [QGIS](http://www.qgis.org/).)
 
 This project assumes you're already familiar with OTP. To get started, check out the project's [very informative wiki](https://github.com/OpenPlans/OpenTripPlanner/wiki) and the [main OTP repo](https://github.com/OpenPlans/OpenTripPlanner).
 
