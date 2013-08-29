@@ -57,7 +57,7 @@ We've deployed the OTP trip planning, analyst, and general accessbility apps for
 
 ![OpenTripPlanner GAnalyst](https://raw.github.com/dssg/cta-otp/master/images/OTPGAnalyst.tiff) 
 
-**OpenTripPlanner Batch Analyst (tiff output colored in [QGIS](http://www.qgis.org/))**
+**OpenTripPlanner Batch Analyst** (tiff output colored in [QGIS](http://www.qgis.org/))
 
 ![OpenTripPlanner Batch Analyst](https://raw.github.com/dssg/cta-otp/master/images/OTPBatchAnalyst.tiff)
 
