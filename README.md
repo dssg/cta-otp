@@ -49,7 +49,7 @@ We've deployed the OTP trip planning, analyst, and general accessbility apps for
 
 ## Screenshots
 
-**OpenTripPlanner Analyst:**:
+**OpenTripPlanner Analyst**:
 
 ![OpenTripPlanner Analyst](https://raw.github.com/dssg/cta-otp/master/images/OTPAnalyst.tiff) 
 
