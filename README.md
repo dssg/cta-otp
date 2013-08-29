@@ -49,11 +49,11 @@ We've deployed the OTP trip planning, analyst, and general accessbility apps for
 
 ## Screenshots
 
-![OpenTripPlanner Analyst](https://raw.github.com/dssg/cta-otp/images/OTPAnalyst.jpg) 
+![OpenTripPlanner Analyst](https://raw.github.com/dssg/cta-otp/images/OTPAnalyst.tiff) 
 
-![OpenTripPlanner GAnalyst](https://raw.github.com/dssg/cta-otp/images/OTPGAnalyst.jpg) 
+![OpenTripPlanner GAnalyst](https://raw.github.com/dssg/cta-otp/images/OTPGAnalyst.tiff) 
 
-![OpenTripPlanner Batch Analyst](https://raw.github.com/dssg/cta-otp/images/OTPBatchAnalyst.jpg)
+![OpenTripPlanner Batch Analyst](https://raw.github.com/dssg/cta-otp/images/OTPBatchAnalyst.tiff)
 
 
 ## How Do I Install OpenTripPlanner?
