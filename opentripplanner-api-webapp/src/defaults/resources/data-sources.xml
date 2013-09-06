@@ -8,13 +8,14 @@
     <!-- specify a GraphService, configuring the path to the serialized Graphs -->
 	<bean id="graphService" class="org.opentripplanner.routing.impl.GraphServiceImpl">
 		<property name="path" value="/var/otp/graphs/" />
-                <!-- other optional properties for multiple graph registration -->
+                <!-- other optional properties for multiple graph registration 
                 <property name="autoRegister">
                   <list>
                     <value>gtfsA</value>
                     <value>gtfsB</value>
                   </list>
                 </property>
+                -->
 	</bean>
 	
 </beans>
