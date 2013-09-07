@@ -48,6 +48,11 @@ otp.ol_rez = [
         0.00933069192767143306
 ];
 
+// step 1.5: define a bounding box
+
+boundingBox = new OpenLayers.Bounds();
+boundingBox.extend(new OpenLayers.LonLat(-87.3551,42.0538));
+boundingBox.extend(new OpenLayers.LonLat(-87.9551,41.6538));
 
 // step 2: create an object of default otp.config default values (see step3 where we apply this to any existing config)
 otp.config_defaults = {
@@ -118,7 +123,8 @@ otp.config_defaults = {
         // The default extent to zoom the map to when the web app loads.
         // This can either be an OpenLayers.Bounds object or the string "automatic"
         // If set to "automatic", the client will ask the server for the default extent.
-        defaultExtent: "automatic",
+        //defaultExtent: "automatic",
+        defaultExtent: boundingBox,
 
         // These options are passed directly to the OpenLayers.Map constructor.
         options : {
