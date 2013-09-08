@@ -51,10 +51,9 @@ We've deployed the OTP trip planning, analyst, and general accessbility apps for
 
 - Analyst demo: http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-analyst-client/
 
-- General accessibility demo (unstable): http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-ga-client/
+- General accessibility demo (potentially unstable): http://ec2-50-112-86-42.us-west-2.compute.amazonaws.com:8080/opentripplanner-ga-client/
 
-**NOTE: THESE DEMOS ARE CURRENTLY UNAVAILABLE DUE TO SERVER ISSUES.**
-
+**NOTE: These demos are hosted on the CTA development EC2 instance, and as such may be taken down from time to time.**
 
 ## How Do I Install OpenTripPlanner?
 
