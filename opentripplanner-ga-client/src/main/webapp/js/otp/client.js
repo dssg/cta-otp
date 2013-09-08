@@ -55,7 +55,7 @@ var flags = {
 
 };
 
-var ori = ['41.8794,-87.6097','41.9877,-87.7205'];
+var ori = ['41.8894,-87.6197','41.9977,-87.7105','41.8994,-87.7597'];
 
 
 // convert a map of query parameters into a query string, 
@@ -112,7 +112,7 @@ if (AUTO_CENTER_MAP) {
 		initLocation = new L.LatLng(lat, lon);
 	}
 }
-map.setView(initLocation, 12);
+map.setView(initLocation, 11);
 var initLocation2 = new L.LatLng(initLocation.lat + 0.05, initLocation.lng + 0.05);
 
 // add layers to map 
